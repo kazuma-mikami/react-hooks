@@ -1,20 +1,19 @@
 import React from "react";
-import {PersonInfoProps as PersonDataProps} from "../props/PersonInfoProps";
+import { InputRefs } from "../PersonTable";
 
 type PersonInfoProps = {
-  value: PersonDataProps;
-  handleChange: (e:React.ChangeEvent<HTMLInputElement>)=>void;
+  inputRefs: InputRefs;
   handleSubmit: (e:React.MouseEvent<HTMLInputElement, MouseEvent>)=> void;
 }
 
-const PersonInfo: React.FC<PersonInfoProps> = ({value,handleChange,handleSubmit}) => {
+const PersonInfo: React.FC<PersonInfoProps> = ({inputRefs,handleSubmit}) => {
   return (
     <>
       <tr>
-        <td><input type="number" name="id" value={value.id !== 0? value.id:""} onChange={(e)=>handleChange(e)}/></td>
-        <td><input type="text" name="name" value={value.name} onChange={(e)=>handleChange(e)}/></td>
-        <td><input type="text" name="department" value={value.department} onChange={(e)=>handleChange(e)}/></td>
-        <td><input type="text" name="grade" value={value.grade} onChange={(e)=>handleChange(e)}/></td>      
+        <td><input type="number" ref={inputRefs.id}/></td>
+        <td><input type="text" ref={inputRefs.name}/></td>
+        <td><input type="text" ref={inputRefs.department}/></td>
+        <td><input type="text" ref={inputRefs.grade}/></td>      
       </tr>
       <tr>
         <td><input type="submit" value="登録" onClick={(e)=>handleSubmit(e)}/></td>

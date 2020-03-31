@@ -1,5 +1,5 @@
 export type PersonInfoProps = {
-    id: number;
+    id: string;
     name: string;
     department: string;
     grade: string;
